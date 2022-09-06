@@ -1,0 +1,182 @@
+using System;
+
+namespace AC1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            bool loop;
+            for (loop = true; loop == true; loop = true)
+            {
+                int vidas = 5;
+                string continuar;
+                Console.WriteLine("Bem-vindo ao Quiz Geek!");
+                Console.WriteLine("Voce ira responder 3 perguntas, cada uma delas corresponde a uma vida sua, se responder todas erradas, voce morre.");
+                Console.WriteLine("Tente sobreviver para passar para a proxima fase!");
+                Console.WriteLine("E lembre-se que todas as respostas devem ser digitadas em letra minuscula.");
+                Console.WriteLine("Esta preparado para a primeira pergunta?" + Environment.NewLine);
+                Console.WriteLine("Digite z para continuar.");
+                continuar = Console.ReadLine();
+                
+                while (continuar != "z")
+                {
+                    Console.WriteLine("Por favor, digite z para continuar");
+                    continuar = Console.ReadLine();
+                }
+
+
+                if (continuar == "z")
+                {
+                    string r1;
+                    Console.WriteLine("1.Quanto e 1000 - 7?");
+                    r1 = Console.ReadLine();
+
+                      if (r1 == "993")
+                      {
+                        Console.WriteLine("Correto!");
+                        Console.WriteLine("Voce ainda possui 5 vidas!" + Environment.NewLine);
+                        Console.WriteLine("Proxima pergunta:" + Environment.NewLine);
+                      }
+                      else
+                      {
+                        vidas = vidas - 1;
+                        Console.WriteLine("Errado!");
+                        Console.WriteLine("Voce agora possui " + vidas + " vidas!" + Environment.NewLine);
+                        Console.WriteLine("Proxima pergunta:" + Environment.NewLine);
+                      }
+
+                    string r2;
+                    Console.WriteLine("Qual é o nome do Capitao Patria em ingles?");
+                    r2 = Console.ReadLine();
+
+                      if (r2 == "homelander")
+                      {
+                        Console.WriteLine("Correto!");
+                        Console.WriteLine("Voce continua com " + vidas + " vidas!" + Environment.NewLine);
+                        Console.WriteLine("Proxima pergunta:" + Environment.NewLine);
+                      }
+                      else
+                      {
+                        vidas = vidas - 1;
+                        Console.WriteLine("Errado!");
+                        Console.WriteLine("Voce agora possui " + vidas + " vidas!" + Environment.NewLine);
+                        Console.WriteLine("Proxima pergunta:" + Environment.NewLine);
+                      }
+
+                    string r3;
+                    Console.WriteLine("2.A arqueologa de One Piece se chama Nami. Esta afirmaçao esta correta?");
+                    Console.WriteLine("Responda com sim ou nao");
+                    r3 = Console.ReadLine();
+
+                           if (r3 == "nao")
+                           {
+                                Console.WriteLine("Correto!");
+                                Console.WriteLine("Voce continua com " + vidas + " vidas!" + Environment.NewLine);
+                                Console.WriteLine("Proxima pergunta:" + Environment.NewLine);
+
+                           }
+                           else
+                           {
+                                vidas = vidas - 1;
+                                Console.WriteLine("Errado!");
+                                Console.WriteLine("Voce agora possui " + vidas + " vidas!" + Environment.NewLine);
+                                Console.WriteLine("Proxima pergunta:" + Environment.NewLine);
+                           }
+                    string r4;
+                    Console.WriteLine("Qual o nome do jogo do antagonista Monokuma?");
+                    r4 = Console.ReadLine();
+
+                            if (r4 == "danganronpa")
+                            {
+                                Console.WriteLine("Correto!");
+                                Console.WriteLine("Voce continua com " + vidas + " vidas!" + Environment.NewLine);
+                                Console.WriteLine("Ultima pergunta:" + Environment.NewLine);
+
+                            }
+                            else
+                            {
+                                vidas = vidas - 1;
+                                Console.WriteLine("Errado!");
+                                Console.WriteLine("Voce agora possui " + vidas + " vidas!" + Environment.NewLine);
+                                Console.WriteLine("Ultima pergunta:" + Environment.NewLine);
+                            }
+
+                    string r5;
+                    Console.WriteLine("3.Qual e a cor da pele do protagonista de Megamind?");
+                    Console.WriteLine("Ela e verde, branca, azul, preta ou vermelha? Digite a resposta.");
+                    r5 = Console.ReadLine();
+
+                      if (r5 == "azul")
+                      {
+                        Console.WriteLine("Correto!");
+
+                        string l1;
+                        Console.WriteLine("Voce termina o jogo com " + vidas + " vidas, parabéns por ter sobrevivido!" + Environment.NewLine);
+                        Console.WriteLine("A proxima fase ainda esta em construção, portanto o jogo termina aqui.");
+                        Console.WriteLine("Obrigado por jogar este demo!" + Environment.NewLine);
+                        Console.WriteLine("Deseja jogar novamente?");
+                        Console.WriteLine("Responda com sim ou nao");
+                        l1 = Console.ReadLine();
+
+                        if (l1 == "nao")
+                        {
+                            loop = false;
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine(Environment.NewLine);
+                        }
+                      }
+                      else
+                      {
+                        vidas = vidas - 1;
+                        Console.WriteLine("Errado!");
+
+                          if (vidas >= 1)
+                          {
+                            string l1;
+                            Console.WriteLine("Voce termina o jogo com " + vidas + " vidas, parabéns por ter sobrevivido" + Environment.NewLine);
+                            Console.WriteLine("A proxima fase ainda esta em construção, portanto o jogo termina aqui.");
+                            Console.WriteLine("Obrigado por jogar este demo!" + Environment.NewLine);
+                            Console.WriteLine("Deseja jogar novamente?");
+                            Console.WriteLine("Responda com sim ou nao");
+                            l1 = Console.ReadLine();
+
+                            if (l1 == "nao")
+                            {
+                                loop = false;
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine(Environment.NewLine);
+                            }
+                          }
+                          else
+                          {
+                            string l1;
+                            Console.WriteLine("Infelizmente, voce perdeu todas as suas 5 vidas, e, portanto, morreu.");
+                            Console.WriteLine("Isso quer dizer GAME OVER, tente de novo, perdedor!" + Environment.NewLine);
+                            Console.WriteLine("Deseja tentar novamente?");
+                            Console.WriteLine("Responda com sim ou nao");
+                            l1 = Console.ReadLine();
+
+                            if (l1 == "nao")
+                            {
+                                loop = false;
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine(Environment.NewLine);
+                            }
+                          }
+
+                      }
+                }
+            }
+        }
+    }
+}
