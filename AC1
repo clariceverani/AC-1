@@ -12,7 +12,7 @@ namespace AC1
                 int vidas = 5;
                 string continuar;
                 Console.WriteLine("Bem-vindo ao Quiz Geek!");
-                Console.WriteLine("Voce ira responder 3 perguntas, cada uma delas corresponde a uma vida sua, se responder todas erradas, voce morre.");
+                Console.WriteLine("Voce ira responder 5 perguntas, cada uma delas corresponde a uma vida sua, se responder todas erradas, voce morre.");
                 Console.WriteLine("Tente sobreviver para passar para a proxima fase!");
                 Console.WriteLine("E lembre-se que todas as respostas devem ser digitadas em letra minuscula.");
                 Console.WriteLine("Esta preparado para a primeira pergunta?" + Environment.NewLine);
