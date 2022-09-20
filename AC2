@@ -1,0 +1,401 @@
+using System;
+using System.Net.NetworkInformation;
+using System.Runtime.Serialization;
+
+namespace TextRPG
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Github = 
+            //Video = https://youtu.be/1RgGQtPj93g
+
+            string n1 = "zero"; //norte
+            string n2 = "zero"; //oeste
+            string n3 = "zero"; //leste
+            string n4 = "zero"; //sul
+            string olho = "vazio";
+            string martelo = "vazio";
+            string chave = "vazio";
+            string buraco = "nulo";
+            string gaveta1 = "fechada";
+            string gaveta3 = "fechada";
+            string esparadrapo = "vazio";
+            string ferida = "fechada";
+            string telefone = "desligado";
+
+            Console.WriteLine("Bem-Vindo ao jogo de Escape Room!");
+            Console.Write("Antes de comecar, digite seu nome: ");
+            string nome = Console.ReadLine();
+            Console.WriteLine("\nVoce esta no meio de uma pequena sala trancada.");
+            Console.WriteLine("A unica fonte de luz sendo uma lampada fraca balancando logo acima de voce.");
+            Console.WriteLine("Tente escapar da sala, boa sorte!");
+
+            bool loop;
+            for (loop = true; loop == true; loop = true)
+            {
+                if (ferida == "aberta" && esparadrapo == "aqui")
+                {
+                    Console.WriteLine("\nCom o esparadrapo, voce cobre sua mao, parando o sangramento em questao de segundos.");
+                    Console.WriteLine("Agora voce pode usar o martelo");
+                    ferida = "fechada";
+                    martelo = "aqui";
+                }
+                Console.WriteLine("\nPara qual lado voce deseja ir, " + nome + "?");
+                Console.WriteLine("Norte, Oeste, Leste ou Sul?");
+                string onde = Console.ReadLine();
+
+                if (onde == "Norte" && n1 == "zero")
+                {
+                    Console.WriteLine("\nAo Norte, voce ve uma porta grande que pode ser aberta com leitura biometrica");
+                    Console.WriteLine("Infelizmente, ela esta trancada com algum tipo de codigo");
+                    Console.WriteLine("Tambem tem um enorme numero escrito na parede: \"98\"");
+                    Console.WriteLine("\nVoce deseja tentar colocar o codigo ou voltar para o meio da sala?");
+                    Console.WriteLine(">codigo");
+                    Console.WriteLine(">voltar");
+                    string codigo1 = Console.ReadLine();
+
+                    if (codigo1 == "codigo")
+                    {
+                        Console.WriteLine("\nEscreva os nomes em ordem:");
+                        string quadro1 = Console.ReadLine();
+                        string quadro2 = Console.ReadLine();
+                        string quadro3 = Console.ReadLine();
+                        string quadro4 = Console.ReadLine();
+                        string quadro5 = Console.ReadLine();
+                        string quadro6 = Console.ReadLine();
+                        string quadro7 = Console.ReadLine();
+
+                        if (quadro1 == "Gula" && quadro2 == "Preguica" && quadro3 == "Luxuria" && quadro4 == "Ira" && quadro5 == "Inveja" && quadro6 == "Ganancia" && quadro7 == "Orgulho")
+                        {
+                            Console.WriteLine("\nParabens, " + nome + "! A leitura biometrica agora esta desbloqueada!");
+                            n1 = "um";
+                            onde = "zera";
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nErrado, " + nome + "! Tente novamente quando descobrir o codigo.");
+                        }
+
+                    }
+                }
+                if (onde == "Norte" && n1 == "um")
+                {
+                    Console.WriteLine("\nAo Norte, voce ve uma porta grande que pode ser aberta com leitura biometrica");
+                    Console.WriteLine("Tambem tem um enorme numero escrito na parede: \"98\"");
+                    Console.WriteLine(">usar leitura");
+                    Console.WriteLine(">voltar");
+                    string leitura = Console.ReadLine();
+                    
+                    if (leitura == "usar leitura" && olho == "aqui")
+                    {
+                        onde = "zera";
+                        Console.WriteLine("\nSucesso, " + nome + "!");
+                        Console.WriteLine("Voce usa o olho em seu inventario e a porta se abre.");
+                        Console.WriteLine("Parabens por escapar! Voce terminou o jogo!");
+                        Console.WriteLine("\nQuer jogar novamente, " + nome + "?");
+                        Console.WriteLine(">sim");
+                        Console.WriteLine(">nao");
+                        string final = Console.ReadLine(); 
+                        
+                        if (final == "sim")
+                        {
+                            n1 = "zero"; //norte
+                            n2 = "zero"; //oeste
+                            n3 = "zero"; //leste
+                            n4 = "zero"; //sul
+                            olho = "vazio";
+                            martelo = "vazio";
+                            chave = "vazio";
+                            buraco = "nulo";
+                            gaveta1 = "fechada";
+                            gaveta3 = "fechada";
+                            esparadrapo = "vazio";
+                            ferida = "fechada";
+                            telefone = "desligado";
+                            leitura = "zera";
+
+                            Console.WriteLine("Bem-Vindo ao jogo de Escape Room!");
+                            Console.Write("Antes de comecar, digite seu nome: ");
+                            nome = Console.ReadLine();
+                            Console.WriteLine("\nVoce esta no meio de uma pequena sala trancada.");
+                            Console.WriteLine("A unica fonte de luz sendo uma lampada fraca balancando logo acima de voce.");
+                            Console.WriteLine("Tente escapar da sala, boa sorte, " + nome + "!");
+                        }
+                        if (final == "nao")
+                        {
+                            break;
+                        }
+                    }
+                    if (leitura == "usar leitura" && olho == "vazio")
+                    {
+                        Console.WriteLine("\nBeep!");
+                        Console.WriteLine("O escaneamento do seu olho nao pode abrir a porta.");
+                        Console.WriteLine("Tente novamente quando conseguir outro olho.");
+                    }
+                }
+                if (onde == "Oeste" && n2 == "zero")
+                {
+                    Console.WriteLine("\nAo Oeste, voce ve um tubo de ventilacao trancado com uma grade.");
+                    Console.WriteLine("Tambem tem um enorme numero escrito na parede: \"61\"");
+
+                    if (martelo == "aqui")
+                    {
+                        Console.WriteLine("\nVoce tem um martelo.");
+                        Console.WriteLine("Deseja usa-lo para quebrar a grade, " + nome + "?");
+                        Console.WriteLine(">sim");
+                        Console.WriteLine(">nao");
+                        string grade = Console.ReadLine();
+
+                        if (grade == "sim")
+                        {
+                            Console.WriteLine("\nVoce quebra a grade apos bater nela varias vezes.");
+                            Console.WriteLine("Agora voce pode entrar no tubo de ventilacao.");
+                            n2 = "um";
+                            onde = "zera";
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Nao tem nada para fazer aqui, entao voce volta para o meio da sala.");
+                    }
+                }
+                if (onde == "Oeste" && n2 == "um")
+                {
+                    Console.WriteLine("\nAo Oeste, voce ve um tubo de ventilacao, pedacos da grade esmagados no canto.");
+                    Console.WriteLine("Tambem tem um enorme numero escrito na parede: \"61\"");
+                    Console.WriteLine("\nDeseja entrar no tubo, " + nome + "?");
+                    Console.WriteLine(">sim");
+                    Console.WriteLine(">nao");
+                    string tubo = Console.ReadLine();
+
+                    if (tubo == "sim" && chave == "vazio")
+                    {
+                        tubo = "zera";
+                        onde = "zera";
+                        Console.WriteLine("\nVoce entra no tubo e se arrasta ate o final.");
+                        Console.WriteLine("Voce encontra uma chave, que voce coloca no bolso de imediato.");
+                        Console.WriteLine("Tambem tem um enorme numero escrito na parede: \"9\"");
+                        Console.WriteLine("E tem um cofre onde voce pode colocar um codigo.");
+                        Console.WriteLine("\nO que deseja fazer, " + nome + "?");
+                        Console.WriteLine(">codigo");
+                        Console.WriteLine(">voltar");
+                        chave = "aqui";
+                        string codigo2 = Console.ReadLine();
+
+                        if (codigo2 == "codigo")
+                        {
+                            Console.WriteLine("\nAcima de onde pode-se colocar o codigo, tem uma pergunta:");
+                            Console.WriteLine("Qual o nome daquele do outro lado da linha?");
+                            string fone = Console.ReadLine();
+
+                            if (fone == "Miguel")
+                            {
+                                Console.WriteLine("\nCorreto, trapaceiro!");
+                                Console.WriteLine("Dentro do cofre, voce encontra um pote de vidro com um olho dentro.");
+                                Console.WriteLine("Voce coloca o pote no inventario mesmo nao merecendo.");
+                                olho = "aqui";
+                            }
+                            else
+                            {
+                                Console.WriteLine("\nErrado, " + nome + "!");
+                                Console.WriteLine("Volte quando souber a resposta.");
+                            }
+                        }
+                    }
+                    if (tubo == "sim" && chave == "aqui")
+                    {
+                        onde = "zera";
+                        tubo = "zera";
+                        Console.WriteLine("\nVoce entra no tubo e se arrasta ate o final.");
+                        Console.WriteLine("Tem um enorme numero escrito na parede: \"9\"");
+                        Console.WriteLine("E um cofre onde voce pode colocar um codigo.");
+                        Console.WriteLine(">codigo");
+                        Console.WriteLine(">voltar");
+                        string codigo2 = Console.ReadLine();
+
+                        if (codigo2 == "codigo")
+                        {
+                            Console.WriteLine("\nAcima de onde pode-se colocar o codigo, tem uma pergunta:");
+                            Console.WriteLine("Qual o nome daquele do outro lado da linha?");
+                            string fone = Console.ReadLine();
+
+                            if (fone == "Miguel")
+                            {
+                                Console.WriteLine("\nCorreto, " + nome + "!");
+                                Console.WriteLine("Dentro do cofre, voce encontra um pote de vidro com um olho dentro.");
+                                Console.WriteLine("Voce coloca o pote no inventario.");
+                                olho = "aqui";
+                            }
+                            else
+                            {
+                                Console.WriteLine("\nErrado, " + nome + "!");
+                                Console.WriteLine("Volte quando souber a resposta.");
+                            }
+                        }
+                    }
+                }
+                if (onde == "Leste" && n3 == "zero")
+                {
+                    Console.WriteLine("\nAo Leste, voce ve 6 quadros pendurados na parede.");
+                    Console.WriteLine("Tambem tem um enorme numero escrito na parede: \"45\"");
+                    Console.WriteLine("E um buraco no piso de madeira.");
+                    Console.WriteLine("\nO que deseja fazer, " + nome + "?");
+                    Console.WriteLine(">olhar quadros");
+                    Console.WriteLine(">vasculhar buraco");
+                    Console.WriteLine(">voltar");
+                    string escolha1 = Console.ReadLine();
+
+                    if (escolha1 == "olhar quadros")
+                    {
+                        Console.WriteLine("\nVoce olha cada quadro cuidadosamente.");
+                        Console.WriteLine("Cada um tinha o retrato de uma pessoa diferente.");
+                        Console.WriteLine("Mas o que chamava mais atencao eram os nomes escritos abaixo de cada.");
+                        Console.WriteLine("E a cor com a qual foram escritos.");
+                        Console.WriteLine("\nO primeiro: Orgulho, cor amarela");
+                        Console.WriteLine("O segundo: Ira, cor vermelha");
+                        Console.WriteLine("O terceiro: Ganancia, cor verde");
+                        Console.WriteLine("O quarto: Preguica, cor azul");
+                        Console.WriteLine("O quinto: Gula, cor marrom");
+                        Console.WriteLine("O sexto: Inveja, cor laranja");
+                        Console.WriteLine("O quinto: Luxuria, cor roxa");
+                    }
+                    if (escolha1 == "vasculhar buraco" && buraco == "nulo")
+                    {
+                        Console.WriteLine("\nVoce coloca a mao no buraco.");
+                        Console.WriteLine("Algo te morde, criando uma ferida com sangramento.");
+                        Console.WriteLine("Mesmo assim, voce continua procurando, ate achar um martelo.");
+                        Console.WriteLine("Voce tira a mao sangrando do buraco e coloca o martelo no seu inventario.");
+                        Console.WriteLine("Antes de usar o martelo para algo, seria melhor encontrar algo para parar o sangramento.");
+                        ferida = "aberta";
+                        buraco = "dois";
+                        escolha1 = "zera";
+                    }
+                    if (escolha1 == "vasculhar buraco" && buraco == "dois")
+                    {
+                        Console.WriteLine("\nVoce coloca a mao no buraco.");
+                        Console.WriteLine("Nao tem mais nada aqui, melhor tirar a mao antes que receba outra mordida.");
+                    }
+                }
+                if (onde == "Sul" && n4 == "zero")
+                {
+                    Console.WriteLine("\nAo Sul, voce ve uma penteadeira, contendo 3 gavetas e um caderno.");
+                    Console.WriteLine("Tambem tem um enorme numero escrito na parede: \"88\"");
+                    Console.WriteLine("\nO que deseja fazer, " + nome + "?");
+                    Console.WriteLine(">ler caderno");
+                    Console.WriteLine(">abrir gaveta 1");
+                    Console.WriteLine(">abrir gaveta 2");
+                    Console.WriteLine(">abrir gaveta 3");
+                    Console.WriteLine(">voltar");
+                    string escolha2 = Console.ReadLine();
+
+                    if (escolha2 == "ler caderno")
+                    {
+                        Console.WriteLine("\nNo caderno, voce encontra apenas o alfabeto escrito nele:");
+                        Console.WriteLine("A B C D E F G H J L M N O P R T U V W Y Z");
+                    }
+                    if (escolha2 == "abrir gaveta 1" && gaveta1 == "fechada")
+                    {
+                        Console.WriteLine("\nA gaveta esta trancada.");
+                        Console.WriteLine("Mas da para abri-la com uma chave.");
+                        Console.WriteLine("\nDeseja tentar, " + nome + "?");
+                        Console.WriteLine(">sim");
+                        Console.WriteLine(">nao");
+                        string abrir1 = Console.ReadLine();
+
+                        if (abrir1 == "sim" && chave == "vazio")
+                        {
+                            Console.WriteLine("\nVoce nao possui uma chave.");
+                        }
+                        if (abrir1 == "sim" && chave == "aqui")
+                        {
+                            Console.WriteLine("\nDentro, voce ve uma folha grudada no fundo com uma paleta de cores:");
+                            Console.WriteLine("Marrom, Azul, Roxo, Vermelho, Laranja, Verde, Amarelo");
+                            gaveta1 = "aberta";
+                            escolha2 = "zera";
+                        }
+                    }
+                    if (escolha2 == "abrir gaveta 1" && gaveta1 == "aberta")
+                    {
+                        Console.WriteLine("\nDentro, voce ve uma folha grudada no fundo com uma paleta de cores:");
+                        Console.WriteLine("Marrom, Azul, Roxo, Vermelho, Laranja, Verde, Amarelo");
+                    }
+                    if (escolha2 == "abrir gaveta 2" && telefone == "desligado")
+                    {
+                        Console.WriteLine("\nAssim que sua mao toca a gaveta, voce ouve o som de um telefone tocando dentro.");
+                        Console.WriteLine("Infelizmente, a gaveta esta trancada.");
+                        Console.WriteLine("Mas ela pode ser aberta com um codigo.");
+                        Console.WriteLine("\nQuer tentar abrir, " + nome + "?");
+                        Console.WriteLine(">sim");
+                        Console.WriteLine(">nao");
+                        string abrir2 = Console.ReadLine();
+
+                        if (abrir2 == "sim")
+                        {
+                            Console.WriteLine("\nAcima de onde se colocar o codigo, tem escrito as letras: S L N O");
+                            Console.WriteLine("O codigo possui 9 digitos, sem espaco entre eles.");
+                            string codigo2 = Console.ReadLine();
+
+                            if (codigo2 == "884598619")
+                            {
+                                Console.WriteLine("\nA gaveta abre, revelando um telefone vermelho antigo.");
+                                Console.WriteLine("O telefone esta tocando mesmo sem o fio estar ligado na tomada.");
+                                Console.WriteLine("Voce atende o telefone.");
+                                Console.WriteLine("\nDo outro lado da linha, voce ouve uma voz sussurrando.");
+                                Console.WriteLine("\"Miguel\"");
+                                Console.WriteLine("A pessoa desliga o telefone e voce ri da absurdidade que acabou de ouvir.");
+                                telefone = "ligado";
+                                escolha2 = "zera";
+                            }
+                            else
+                            {
+                                Console.WriteLine("\nErrado, " + nome + "! Tente de novo.");
+                            }
+                        }
+
+                    }
+                    if (escolha2 == "abrir gaveta 2" && telefone == "ligado")
+                    {
+                        Console.WriteLine("\nNao tem mais nada para ver nesta gaveta.");
+                        Console.WriteLine("A pessoa no telefone apenas disse o nome \"Miguel\" e desligou");
+                    }
+                    if (escolha2 == "abrir gaveta 3")
+                    {
+                        Console.WriteLine("\nA gaveta esta trancada.");
+                        Console.WriteLine("Mas e possivel colocar um codigo para abri-la.");
+                        Console.WriteLine("\nDeseja tentar, " + nome + "?");
+                        Console.WriteLine(">sim");
+                        Console.WriteLine(">nao");
+                        string abrir3 = Console.ReadLine();
+
+                        if (abrir3 == "sim" && gaveta3 == "fechada")
+                        {
+                            Console.WriteLine("\nDigite as letras em caixa alta, sem espaco entre elas:");
+                            Console.WriteLine("(Dica: Sao 5 letras)");
+                            string codigo3 = Console.ReadLine();
+
+                            if (codigo3 == "IKQSX")
+                            {
+                                Console.WriteLine("\nCorreto, " + nome + "!");
+                                Console.WriteLine("A gaveta se abre.");
+                                Console.WriteLine("Dentro, voce tira um esparadrapo e coloca no seu inventario.");
+                                esparadrapo = "aqui";
+                                gaveta3 = "aberta";
+                                abrir3 = "nao";
+                            }
+                            else
+                            {
+                                Console.WriteLine("\nErrado, " + nome + "! Tente de novo!");
+                            }
+                        }
+                        if (abrir3 == "sim" && gaveta3 == "aberta")
+                        {
+                            Console.WriteLine("\nVoce ja abriu essa gaveta, nao tem mais nada aqui.");
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
