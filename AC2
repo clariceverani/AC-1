@@ -8,7 +8,7 @@ namespace TextRPG
     {
         static void Main(string[] args)
         {
-            //Github = 
+            //Github = https://github.com/clariceverani/AC-1/blob/main/AC2
             //Video = https://youtu.be/1RgGQtPj93g
 
             string n1 = "zero"; //norte
